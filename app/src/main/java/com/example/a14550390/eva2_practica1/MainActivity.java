@@ -37,11 +37,11 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intentDetalle = new Intent(this, Detalles.class);
-        int idImagen = arrDatosRestaurant[position].idImagen;
-        String nombre = arrDatosRestaurant[position].nombre;
-        String descripcion = arrDatosRestaurant[position].descripcion;
-        String direccion = arrDatosRestaurant[position].direccion;
-        String telefono = arrDatosRestaurant[position].telefono;
+        int idImagen = arrDatosRestaurant[position].getIdImagen();
+        String nombre = arrDatosRestaurant[position].getNombre();
+        String descripcion = arrDatosRestaurant[position].getDescripcion();
+        String direccion = arrDatosRestaurant[position].getDireccion();
+        String telefono = arrDatosRestaurant[position].getTelefono();
 
         intentDetalle.putExtra("IMAGEN",idImagen);
         intentDetalle.putExtra("NOMBRE",nombre);

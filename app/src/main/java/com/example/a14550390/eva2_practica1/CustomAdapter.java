@@ -30,35 +30,38 @@ public class CustomAdapter extends ArrayAdapter <DatosRestaurant> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View item = convertView;
-        //ViewHolder holder;
+        ViewHolder holder;
 
-        ImageView imageViewRestaurant;
-        TextView lblNombre, lblDescripcion;
+        //ImageView imageViewRestaurant;
+        //TextView lblNombre, lblDescripcion;
 
         if(item==null){
             //CREAR
-            LayoutInflater liCrearLayout = ((Activity)contextApp).getLayoutInflater();
-            item = liCrearLayout.inflate(layout, parent, false);
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            item = inflater.inflate(layout, null);
 
-            //holder = new ViewHolder();
-            //holder.nombre = (TextView)item.findViewById(R.id.lblNombre);
-            //holder.descripcion = (TextView) item.findViewById(R.id.lblDescripcion);
-            //holder.imgView = (ImageView) item.findViewById(R.id.imgRestaurant);
+            holder = new ViewHolder();
+            holder.nombre = (TextView)item.findViewById(R.id.lblNombre);
+            holder.descripcion = (TextView) item.findViewById(R.id.lblDescripcion);
+            holder.imgView = (ImageView) item.findViewById(R.id.imgRestaurant);
+
+            item.setTag(holder);
         }else{
-            //holder = (ViewHolder)item.getTag();
+            holder = (ViewHolder)item.getTag();
         }
-        imageViewRestaurant = (ImageView) item.findViewById(R.id.imgRestaurant);
-        lblNombre = (TextView) item.findViewById(R.id.lblNombre);
-        lblDescripcion = (TextView) item.findViewById(R.id.lblDescripcion);
+        //imageViewRestaurant = (ImageView) item.findViewById(R.id.imgRestaurant);
+        //lblNombre = (TextView) item.findViewById(R.id.lblNombre);
+        //lblDescripcion = (TextView) item.findViewById(R.id.lblDescripcion);
 
         DatosRestaurant dcOb = arrDatos[position];
-        imageViewRestaurant.setImageResource(dcOb.idImagen);
-        lblNombre.setText(dcOb.nombre);
-        lblDescripcion.setText(dcOb.descripcion);
 
-        //holder.nombre.setText(arrDatos[position].getNombre());
-        //holder.descripcion.setText(arrDatos[position].getDescripcion());
-        //holder.imgView.setImageResource(arrDatos[position].getIdImagen());
+        //imageViewRestaurant.setImageResource(dcOb.getIdImagen());
+        //lblNombre.setText(dcOb.getNombre());
+        //lblDescripcion.setText(dcOb.getDescripcion());
+
+        holder.nombre.setText(dcOb.getNombre());
+        holder.descripcion.setText(dcOb.getDescripcion());
+        holder.imgView.setImageResource(dcOb.getIdImagen());
         return item;
     }
 
