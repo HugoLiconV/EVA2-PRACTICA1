@@ -2,7 +2,6 @@ package com.example.a14550390.eva2_practica1;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +21,7 @@ public class Detalles extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_detalles);
 
-        lblNombreDet = (TextView)findViewById(R.id.lblNombreDet);
+        lblNombreDet = (TextView)findViewById(R.id.lblNombre);
         lblDescripcionDet = (TextView)findViewById(R.id.lblDescripcionDet);
         lblDireccion = (TextView)findViewById(R.id.lblDireccion);
         lblTelefono = (TextView)findViewById(R.id.lblTelefono);

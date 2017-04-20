@@ -20,7 +20,7 @@
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lblNombreDet"
+        android:id="@+id/lblNombre"
         android:textSize="55sp"
         android:textColor="@android:color/holo_orange_light"
         android:textStyle="normal|bold"

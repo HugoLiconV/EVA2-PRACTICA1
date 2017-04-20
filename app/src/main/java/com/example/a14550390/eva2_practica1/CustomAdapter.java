@@ -29,23 +29,41 @@ public class CustomAdapter extends ArrayAdapter <DatosRestaurant> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View viewFila = convertView;
+        View item = convertView;
+        //ViewHolder holder;
+
         ImageView imageViewRestaurant;
-        TextView lblNombre, lblDescripcion, lblNombreSombra;
-        if(viewFila==null){
+        TextView lblNombre, lblDescripcion;
+
+        if(item==null){
             //CREAR
             LayoutInflater liCrearLayout = ((Activity)contextApp).getLayoutInflater();
-            viewFila = liCrearLayout.inflate(layout, parent, false);
+            item = liCrearLayout.inflate(layout, parent, false);
+
+            //holder = new ViewHolder();
+            //holder.nombre = (TextView)item.findViewById(R.id.lblNombre);
+            //holder.descripcion = (TextView) item.findViewById(R.id.lblDescripcion);
+            //holder.imgView = (ImageView) item.findViewById(R.id.imgRestaurant);
+        }else{
+            //holder = (ViewHolder)item.getTag();
         }
-        imageViewRestaurant = (ImageView) viewFila.findViewById(R.id.imgRestaurant);
-        lblNombre = (TextView) viewFila.findViewById(R.id.lblNombreDet);
-        lblDescripcion = (TextView) viewFila.findViewById(R.id.lblDescripcion);
-        //lblNombreSombra = (TextView)viewFila.findViewById(R.id.lblNombreSombra);
+        imageViewRestaurant = (ImageView) item.findViewById(R.id.imgRestaurant);
+        lblNombre = (TextView) item.findViewById(R.id.lblNombre);
+        lblDescripcion = (TextView) item.findViewById(R.id.lblDescripcion);
+
         DatosRestaurant dcOb = arrDatos[position];
         imageViewRestaurant.setImageResource(dcOb.idImagen);
         lblNombre.setText(dcOb.nombre);
         lblDescripcion.setText(dcOb.descripcion);
-        //lblNombreSombra.setText(dcOb.nombre);
-        return viewFila;
+
+        //holder.nombre.setText(arrDatos[position].getNombre());
+        //holder.descripcion.setText(arrDatos[position].getDescripcion());
+        //holder.imgView.setImageResource(arrDatos[position].getIdImagen());
+        return item;
+    }
+
+    static class ViewHolder{
+        TextView nombre, descripcion;
+        ImageView imgView;
     }
 }

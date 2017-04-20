@@ -51,7 +51,7 @@
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lblNombreDet"
+        android:id="@+id/lblNombre"
         android:textSize="50sp"
         android:textColor="@android:color/background_light"
         android:textStyle="normal|bold"
@@ -69,7 +69,7 @@
         android:textSize="36sp"
         android:textColor="@color/colorAccent"
       android:textAlignment="center"
-      android:layout_below="@+id/lblNombreDet"
+      android:layout_below="@+id/lblNombre"
       android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
