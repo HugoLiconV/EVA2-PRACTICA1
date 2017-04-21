@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
           "Av. mirador #5362", "6142427455"),
       new DatosRestaurant(R.drawable.forkeerestaurant, "Forkee Restaurant", "Desayunos",
           "Av. mirador #5362", "6142428958"),};*/
+
 
 
   @Override
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private void initializeAdapter() {
-    rAdapter = new RestaurantAdapter(datos);
+    rAdapter = new RestaurantAdapter(datos, getApplicationContext());
     RecyclerView recView = (RecyclerView) findViewById(R.id.RecView);
     recView.setHasFixedSize(true);
     recView.setLayoutManager(new LinearLayoutManager(this));

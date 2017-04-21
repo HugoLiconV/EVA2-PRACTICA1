@@ -1,46 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="wrap_content">
 
   <ImageView
     android:id="@+id/imgRestaurant"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
     android:adjustViewBounds="true"
-    android:cropToPadding="true"
+    android:cropToPadding="false"
     android:scaleType="fitStart"
-    app:srcCompat="@drawable/barrafina"
-    android:layout_alignParentTop="true" />
+    app:srcCompat="@drawable/barrafina" />
 
   <TextView
     android:id="@+id/lblNombre"
     android:textStyle="normal|bold"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
+    android:layout_marginTop="10dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
     android:alpha=".6"
+    android:gravity="center"
     android:text="TextView"
     android:textColor="@android:color/holo_orange_light"
-    android:textSize="55sp"
-    android:layout_marginTop="10dp"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentStart="true" />
+    android:textSize="55sp" />
 
   <TextView
     android:id="@+id/lblDescripcion"
+    android:textStyle="normal|bold"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textStyle="normal|bold"
+    android:layout_marginTop="5dp"
+    android:layout_alignParentStart="true"
+    android:layout_below="@+id/lblNombre"
     android:gravity="center"
     android:text="TextView"
     android:textColor="@color/colorAccent"
-    android:textSize="30sp"
-    android:layout_below="@+id/lblNombre"
-    android:layout_alignParentStart="true"
-    android:layout_marginTop="5dp" />
-
+    android:textSize="30sp" />
 
 </RelativeLayout>

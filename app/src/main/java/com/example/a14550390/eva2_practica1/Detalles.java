@@ -1,13 +1,16 @@
 package com.example.a14550390.eva2_practica1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.squareup.picasso.Picasso;
 
 public class Detalles extends AppCompatActivity {
 
@@ -23,7 +26,6 @@ public class Detalles extends AppCompatActivity {
     getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_detalles);
-
     lblNombreDet = (TextView) findViewById(R.id.lblNombre);
     lblDescripcionDet = (TextView) findViewById(R.id.lblDescripcionDet);
     lblDireccion = (TextView) findViewById(R.id.lblDireccion);
@@ -39,9 +41,15 @@ public class Detalles extends AppCompatActivity {
 //        String nombre = intentDatos.getStringExtra("NOMBRE");
 //        String descripcion = intentDatos.getStringExtra("DESCRIPCION");
 //        String direccion = intentDatos.getStringExtra("DIRECCION");
-    String telefono = restaurant.getTelefono();
 
-    imgDetalle.setImageResource(restaurant.getIdImagenDet());
+
+    String telefono = restaurant.getTelefono();
+    Picasso.with(getApplicationContext())
+        .load(restaurant.getIdImagenDet())
+        //.resize(height, width)
+        //.centerCrop()
+        .into(imgDetalle);
+    //imgDetalle.setImageResource(restaurant.getIdImagenDet());
     lblNombreDet.setText(restaurant.getNombre());
     lblDescripcionDet.setText(restaurant.getDescripcion());
     lblDireccion.setText(restaurant.getDireccion());
