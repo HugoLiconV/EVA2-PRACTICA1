@@ -14,6 +14,7 @@ public class DatosRestaurant implements Parcelable {
   private String direccion;
   private String telefono;
   private int idImagen;
+  private int idImagenDet;
 
   public static final Parcelable.Creator<DatosRestaurant> CREATOR = new Parcelable.Creator<DatosRestaurant>() {
     @Override
@@ -28,12 +29,13 @@ public class DatosRestaurant implements Parcelable {
   };
 
   public DatosRestaurant(int idImagen, String nombre, String descripcion, String direccion,
-      String telefono) {
+      String telefono, int idImagenDet) {
     this.idImagen = idImagen;
     this.nombre = nombre;
     this.descripcion = descripcion;
     this.direccion = direccion;
     this.telefono = telefono;
+    this.idImagenDet = idImagenDet;
   }
 
   public DatosRestaurant() {
@@ -42,6 +44,7 @@ public class DatosRestaurant implements Parcelable {
     descripcion = "";
     direccion = "";
     telefono = "";
+    idImagenDet = 0;
   }
 
   protected DatosRestaurant(Parcel in) {
@@ -50,6 +53,7 @@ public class DatosRestaurant implements Parcelable {
     direccion = in.readString();
     telefono = in.readString();
     idImagen = in.readInt();
+    idImagenDet = in.readInt();
   }
 
   @Override
@@ -64,6 +68,15 @@ public class DatosRestaurant implements Parcelable {
     dest.writeString(direccion);
     dest.writeString(telefono);
     dest.writeInt(idImagen);
+    dest.writeInt(idImagenDet);
+  }
+
+  public int getIdImagenDet() {
+    return idImagenDet;
+  }
+
+  public void setIdImagenDet(int idImagenDet) {
+    this.idImagenDet = idImagenDet;
   }
 
   public String getNombre() {

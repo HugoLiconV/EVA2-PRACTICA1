@@ -11,44 +11,46 @@ import android.widget.TextView;
 
 public class Detalles extends AppCompatActivity {
 
-    public final static String RESTAURANTE = "RESTAURANTE";
-    TextView lblNombreDet, lblDescripcionDet, lblDireccion, lblTelefono;
-    ImageView imgDetalle;
-    Intent intentDial;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //Quitar el status bar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_detalles);
+  public final static String RESTAURANTE = "RESTAURANTE";
+  TextView lblNombreDet, lblDescripcionDet, lblDireccion, lblTelefono;
+  ImageView imgDetalle;
+  Intent intentDial;
 
-        lblNombreDet = (TextView)findViewById(R.id.lblNombre);
-        lblDescripcionDet = (TextView)findViewById(R.id.lblDescripcionDet);
-        lblDireccion = (TextView)findViewById(R.id.lblDireccion);
-        lblTelefono = (TextView)findViewById(R.id.lblTelefono);
-        imgDetalle = (ImageView)findViewById(R.id.imgDetalle);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    //Quitar el status bar
+    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    setContentView(R.layout.activity_detalles);
 
-        //LEER DATOS
-        Intent intentDatos = getIntent();
+    lblNombreDet = (TextView) findViewById(R.id.lblNombre);
+    lblDescripcionDet = (TextView) findViewById(R.id.lblDescripcionDet);
+    lblDireccion = (TextView) findViewById(R.id.lblDireccion);
+    lblTelefono = (TextView) findViewById(R.id.lblTelefono);
+    imgDetalle = (ImageView) findViewById(R.id.imgDetalle);
 
-      DatosRestaurant restaurant = getIntent().getParcelableExtra(RESTAURANTE);
+    //LEER DATOS
+    Intent intentDatos = getIntent();
+
+    DatosRestaurant restaurant = getIntent().getParcelableExtra(RESTAURANTE);
 
 //        int idImg = intentDatos.getIntExtra("IMAGEN",R.drawable.barrafina);
 //        String nombre = intentDatos.getStringExtra("NOMBRE");
 //        String descripcion = intentDatos.getStringExtra("DESCRIPCION");
 //        String direccion = intentDatos.getStringExtra("DIRECCION");
-        String telefono = restaurant.getTelefono();
+    String telefono = restaurant.getTelefono();
 
-        imgDetalle.setImageResource(restaurant.getIdImagen());
-        lblNombreDet.setText(restaurant.getNombre());
-        lblDescripcionDet.setText(restaurant.getDescripcion());
-        lblDireccion.setText(restaurant.getDireccion());
-        lblTelefono.setText(restaurant.getTelefono());
+    imgDetalle.setImageResource(restaurant.getIdImagenDet());
+    lblNombreDet.setText(restaurant.getNombre());
+    lblDescripcionDet.setText(restaurant.getDescripcion());
+    lblDireccion.setText(restaurant.getDireccion());
+    lblTelefono.setText(restaurant.getTelefono());
 
-        intentDial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+telefono));
-    }
+    intentDial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + telefono));
+  }
 
-    public void dial(View v){
-        startActivity(intentDial);
-    }
+  public void dial(View v) {
+    startActivity(intentDial);
+  }
 }
