@@ -30,17 +30,20 @@ public class Detalles extends AppCompatActivity {
 
         //LEER DATOS
         Intent intentDatos = getIntent();
-        int idImg = intentDatos.getIntExtra("IMAGEN",R.drawable.barrafina);
-        String nombre = intentDatos.getStringExtra("NOMBRE");
-        String descripcion = intentDatos.getStringExtra("DESCRIPCION");
-        String direccion = intentDatos.getStringExtra("DIRECCION");
-        String telefono = intentDatos.getStringExtra("TELEFONO");
 
-        imgDetalle.setImageResource(idImg);
-        lblNombreDet.setText(nombre);
-        lblDescripcionDet.setText(descripcion);
-        lblDireccion.setText(direccion);
-        lblTelefono.setText(telefono);
+      DatosRestaurant restaurant = getIntent().getParcelableExtra(RESTAURANTE);
+
+//        int idImg = intentDatos.getIntExtra("IMAGEN",R.drawable.barrafina);
+//        String nombre = intentDatos.getStringExtra("NOMBRE");
+//        String descripcion = intentDatos.getStringExtra("DESCRIPCION");
+//        String direccion = intentDatos.getStringExtra("DIRECCION");
+        String telefono = restaurant.getTelefono();
+
+        imgDetalle.setImageResource(restaurant.getIdImagen());
+        lblNombreDet.setText(restaurant.getNombre());
+        lblDescripcionDet.setText(restaurant.getDescripcion());
+        lblDireccion.setText(restaurant.getDireccion());
+        lblTelefono.setText(restaurant.getTelefono());
 
         intentDial = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+telefono));
     }

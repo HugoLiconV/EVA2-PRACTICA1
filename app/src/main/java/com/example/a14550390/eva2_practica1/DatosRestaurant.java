@@ -14,8 +14,8 @@ public class DatosRestaurant implements Parcelable {
 
   public static final Creator<DatosRestaurant> CREATOR = new Creator<DatosRestaurant>() {
     @Override
-    public DatosRestaurant createFromParcel(Parcel source) {
-      return new DatosRestaurant(source);
+    public DatosRestaurant createFromParcel(Parcel in) {
+      return new DatosRestaurant(in);
     }
 
     @Override
@@ -41,6 +41,7 @@ public class DatosRestaurant implements Parcelable {
     telefono = "";
   }
 
+//  modificado
   protected DatosRestaurant(Parcel in) {
     idImagen = in.readInt();
     nombre = in.readString();
@@ -48,6 +49,7 @@ public class DatosRestaurant implements Parcelable {
     direccion = in.readString();
     telefono = in.readString();
   }
+
 
   public String getNombre() {
     return nombre;

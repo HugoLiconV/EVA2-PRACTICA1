@@ -24,8 +24,8 @@ public class RestaurantAdapter extends RecyclerView.Adapter <RestaurantAdapter.V
 
   private List <DatosRestaurant> mRestauranteList;
 
-  RestaurantAdapter(){
-    mRestauranteList = new ArrayList<>();
+  public RestaurantAdapter(ArrayList<DatosRestaurant> datos){
+    mRestauranteList = datos;
   }
   /**
    * Called when RecyclerView needs a new {@link ViewHolder} of the given type to represent
@@ -110,14 +110,14 @@ public class RestaurantAdapter extends RecyclerView.Adapter <RestaurantAdapter.V
       txtDescripcion.setText(restaurant.getDescripcion());
       imgRestaurant.setImageResource(restaurant.getIdImagen());
 
-      itemView.setOnClickListener(new OnClickListener() {
+      /*itemView.setOnClickListener(new OnClickListener() {
         @Override
         public void onClick(View v) {
           Intent intent = new Intent(context, Detalles.class);
           intent.putExtra(Detalles.RESTAURANTE, mRestaurant);
           context.startActivity(intent);
         }
-      });
+      });*/
     }
   }
 }

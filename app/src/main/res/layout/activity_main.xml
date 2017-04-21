@@ -10,13 +10,8 @@
     android:paddingTop="0dp"
     tools:context="com.example.a14550390.eva2_practica1.MainActivity">
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listRestaurant" />
-
-    <android.support.v7.widget.RecyclerView
-      android:id="@+id/RecView"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"/>
+  <android.support.v7.widget.RecyclerView
+    android:id="@+id/RecView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
 </LinearLayout>

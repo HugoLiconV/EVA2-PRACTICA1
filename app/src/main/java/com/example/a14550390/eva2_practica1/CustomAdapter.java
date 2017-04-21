@@ -1,3 +1,4 @@
+/*
 package com.example.a14550390.eva2_practica1;
 
 import android.app.Activity;
@@ -10,9 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+*/
 /**
  * Created by 14550390 on 21/03/17.
- */
+ *//*
+
 
 public class CustomAdapter extends ArrayAdapter <DatosRestaurant> {
     Context contextApp;
@@ -61,3 +64,4 @@ public class CustomAdapter extends ArrayAdapter <DatosRestaurant> {
         ImageView imgView;
     }
 }
+*/
