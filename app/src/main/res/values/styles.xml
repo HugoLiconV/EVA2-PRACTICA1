@@ -3,10 +3,16 @@
   <!-- Base application theme. -->
   <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
     <!-- Customize your theme here. -->
-    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimary">#000</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
-    <item name="android:colorBackground">@color/cardview_light_background</item>
+    <item name="android:colorBackground">@android:color/holo_orange_light</item>
   </style>
 
+  <style name="AppTheme.Base" parent="ThemeOverlay.AppCompat.ActionBar">
+    <!-- Parent theme sets colorControlNormal to textColorPrimary. -->
+    <item name="android:textColorPrimary">@android:color/holo_orange_light</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorPrimary">@android:color/holo_orange_light</item>
+  </style>
 </resources>

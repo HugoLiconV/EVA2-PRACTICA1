@@ -9,69 +9,60 @@
   android:paddingBottom="0dp"
   android:paddingLeft="0dp"
   android:paddingRight="0dp"
+  android:background="@android:color/background_dark"
   tools:context="com.example.a14550390.eva2_practica1.Detalles">
-
-  <TextView
-    android:id="@+id/lblTelefono"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-
-    android:layout_marginEnd="15dp"
-    android:layout_alignParentEnd="true"
-    android:layout_below="@+id/lblDireccion"
-    android:onClick="dial"
-    android:text="Telefono"
-    android:textAlignment="textEnd"
-    android:textColor="@color/colorPrimary"
-    android:textSize="24sp" />
 
   <ImageView
     android:id="@+id/imgDetalle"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
+    android:layout_above="@+id/lblNombre"
     android:layout_alignParentTop="true"
     android:adjustViewBounds="true"
     android:cropToPadding="false"
-    android:elevation="0dp"
     android:scaleType="fitStart"
     app:srcCompat="@drawable/barrafina2x" />
 
   <TextView
-    android:id="@+id/lblDireccion"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="23dp"
-    android:layout_below="@+id/imgDetalle"
-    android:layout_centerHorizontal="true"
-    android:text="Direccion"
-    android:textColor="@android:color/darker_gray"
-    android:textSize="24sp" />
-  <TextView
     android:id="@+id/lblNombre"
     android:textStyle="normal|bold"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="69dp"
-    android:layout_alignParentTop="true"
+    android:layout_above="@+id/lblDescripcionDet"
     android:layout_centerHorizontal="true"
-    android:elevation="5dp"
-    android:text="TextView"
-    android:textAlignment="center"
+    android:gravity="center"
+    android:text="Nombre"
     android:textColor="@android:color/background_light"
     android:textSize="50sp" />
 
   <TextView
     android:id="@+id/lblDescripcionDet"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_below="@+id/lblNombre"
-    android:layout_centerHorizontal="true"
-    android:elevation="5dp"
+    android:layout_above="@+id/lblDireccion"
+    android:gravity="center"
     android:text="TextView"
-    android:textAlignment="center"
     android:textColor="@color/colorAccent"
     android:textSize="36sp" />
+  <TextView
+    android:id="@+id/lblDireccion"
+    android:textStyle="bold"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/lblTelefono"
+    android:gravity="center"
+    android:text="Direccion"
+    android:textColor="@android:color/holo_orange_light"
+    android:textSize="30sp" />
 
+  <TextView
+    android:id="@+id/lblTelefono"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:gravity="center"
+    android:onClick="dial"
+    android:text="Telefono"
+    android:textColor="@android:color/background_light"
+    android:textSize="30sp" />
 </RelativeLayout>
