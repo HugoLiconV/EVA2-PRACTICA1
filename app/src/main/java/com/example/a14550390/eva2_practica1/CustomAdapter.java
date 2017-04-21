@@ -1,3 +1,4 @@
+/*
 package com.example.a14550390.eva2_practica1;
 
 import android.app.Activity;
@@ -10,9 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+*/
 /**
  * Created by 14550390 on 21/03/17.
- */
+ *//*
+
 
 public class CustomAdapter extends ArrayAdapter <DatosRestaurant> {
     Context contextApp;
@@ -29,23 +32,36 @@ public class CustomAdapter extends ArrayAdapter <DatosRestaurant> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View viewFila = convertView;
-        ImageView imageViewRestaurant;
-        TextView lblNombre, lblDescripcion, lblNombreSombra;
-        if(viewFila==null){
+        View item = convertView;
+        ViewHolder holder;
+
+        //ImageView imageViewRestaurant;
+        //TextView lblNombre, lblDescripcion;
+
+        if(item==null){
             //CREAR
-            LayoutInflater liCrearLayout = ((Activity)contextApp).getLayoutInflater();
-            viewFila = liCrearLayout.inflate(layout, parent, false);
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            item = inflater.inflate(layout, null);
+
+            holder = new ViewHolder();
+            holder.nombre = (TextView)item.findViewById(R.id.lblNombre);
+            holder.descripcion = (TextView) item.findViewById(R.id.lblDescripcion);
+            holder.imgView = (ImageView) item.findViewById(R.id.imgRestaurant);
+
+            item.setTag(holder);
+        }else{
+            holder = (ViewHolder)item.getTag();
         }
-        imageViewRestaurant = (ImageView) viewFila.findViewById(R.id.imgRestaurant);
-        lblNombre = (TextView) viewFila.findViewById(R.id.lblNombreDet);
-        lblDescripcion = (TextView) viewFila.findViewById(R.id.lblDescripcion);
-        //lblNombreSombra = (TextView)viewFila.findViewById(R.id.lblNombreSombra);
         DatosRestaurant dcOb = arrDatos[position];
-        imageViewRestaurant.setImageResource(dcOb.idImagen);
-        lblNombre.setText(dcOb.nombre);
-        lblDescripcion.setText(dcOb.descripcion);
-        //lblNombreSombra.setText(dcOb.nombre);
-        return viewFila;
+        holder.nombre.setText(dcOb.getNombre());
+        holder.descripcion.setText(dcOb.getDescripcion());
+        holder.imgView.setImageResource(dcOb.getIdImagen());
+        return item;
+    }
+
+    static class ViewHolder{
+        TextView nombre, descripcion;
+        ImageView imgView;
     }
 }
+*/
