@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class Detalles extends AppCompatActivity {
 
+    public final static String RESTAURANTE = "RESTAURANTE";
     TextView lblNombreDet, lblDescripcionDet, lblDireccion, lblTelefono;
     ImageView imgDetalle;
     Intent intentDial;

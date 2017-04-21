@@ -49,16 +49,7 @@ public class CustomAdapter extends ArrayAdapter <DatosRestaurant> {
         }else{
             holder = (ViewHolder)item.getTag();
         }
-        //imageViewRestaurant = (ImageView) item.findViewById(R.id.imgRestaurant);
-        //lblNombre = (TextView) item.findViewById(R.id.lblNombre);
-        //lblDescripcion = (TextView) item.findViewById(R.id.lblDescripcion);
-
         DatosRestaurant dcOb = arrDatos[position];
-
-        //imageViewRestaurant.setImageResource(dcOb.getIdImagen());
-        //lblNombre.setText(dcOb.getNombre());
-        //lblDescripcion.setText(dcOb.getDescripcion());
-
         holder.nombre.setText(dcOb.getNombre());
         holder.descripcion.setText(dcOb.getDescripcion());
         holder.imgView.setImageResource(dcOb.getIdImagen());

@@ -1,22 +1,33 @@
-/*
 package com.example.a14550390.eva2_practica1.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.example.a14550390.eva2_practica1.DatosRestaurant;
+import com.example.a14550390.eva2_practica1.Detalles;
+import com.example.a14550390.eva2_practica1.R;
+import java.util.ArrayList;
+import java.util.List;
 
-*/
 /**
  * Created by Hugo on 20/04/17.
- *//*
+ */
 
+public class RestaurantAdapter extends RecyclerView.Adapter <RestaurantAdapter.ViewHolder>{
 
-public class RestaurantAdapter extends RecyclerView.Adapter <RestaurantAdapter.ViewHodler>{
+  private List <DatosRestaurant> mRestauranteList;
 
-  */
-/**
+  RestaurantAdapter(){
+    mRestauranteList = new ArrayList<>();
+  }
+  /**
    * Called when RecyclerView needs a new {@link ViewHolder} of the given type to represent
    * an item.
    * <p>
@@ -35,15 +46,15 @@ public class RestaurantAdapter extends RecyclerView.Adapter <RestaurantAdapter.V
    * @return A new ViewHolder that holds a View of the given view type.
    * @see #getItemViewType(int)
    * @see #onBindViewHolder(ViewHolder, int)
-   *//*
-
+   */
   @Override
-  public DatosRestaurant onCreateViewHolder(ViewGroup parent, int viewType) {
-    return null;
+  public RestaurantAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+    View itemView = inflater.inflate(R.layout.lista_restaurante, parent, false);
+    return new ViewHolder(itemView);
   }
 
-  */
-/**
+  /**
    * Called by RecyclerView to display the data at the specified position. This method should
    * update the contents of the {@link ViewHolder#itemView} to reflect the item at the given
    * position.
@@ -62,31 +73,52 @@ public class RestaurantAdapter extends RecyclerView.Adapter <RestaurantAdapter.V
    * @param holder The ViewHolder which should be updated to represent the contents of the item at
    * the given position in the data set.
    * @param position The position of the item within the adapter's data set.
-   *//*
-
+   */
   @Override
-  public void onBindViewHolder(DatosRestaurant holder, int position) {
-
+  public void onBindViewHolder(RestaurantAdapter.ViewHolder viewHolder, int position) {
+    viewHolder.bindData(mRestauranteList.get(position));
   }
 
-  */
-/**
+  /**
    * Returns the total number of items in the data set held by the adapter.
    *
    * @return The total number of items in this adapter.
-   *//*
-
+   */
   @Override
   public int getItemCount() {
-    return 0;
+    return mRestauranteList.size();
   }
 
-  static class ViewHodler extends RecyclerView.ViewHolder{
+  static class ViewHolder extends RecyclerView.ViewHolder{
 
-    public ViewHodler(View itemView) {
+    private TextView txtNombre;
+    private TextView txtDescripcion;
+    private ImageView imgRestaurant;
+    private DatosRestaurant mRestaurant;
+
+    ViewHolder(View itemView) {
       super(itemView);
+      txtNombre = (TextView)itemView.findViewById(R.id.lblNombre);
+      txtDescripcion = (TextView)itemView.findViewById(R.id.lblDescripcion);
+      imgRestaurant = (ImageView)itemView.findViewById(R.id.imgRestaurant);
+    }
+
+    void bindData(DatosRestaurant restaurant){
+      this.mRestaurant = restaurant;
+      final Context context = itemView.getContext();
+      txtNombre.setText(restaurant.getNombre());
+      txtDescripcion.setText(restaurant.getDescripcion());
+      imgRestaurant.setImageResource(restaurant.getIdImagen());
+
+      itemView.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          Intent intent = new Intent(context, Detalles.class);
+          intent.putExtra(Detalles.RESTAURANTE, mRestaurant);
+          context.startActivity(intent);
+        }
+      });
     }
   }
 }
 
-*/
