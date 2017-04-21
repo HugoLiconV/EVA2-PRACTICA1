@@ -4,10 +4,12 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable.Creator;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
@@ -47,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
     getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.activity_main);
+
+    Toolbar toolbar = (Toolbar) findViewById(R.id.appbar);
+    setSupportActionBar(toolbar);
+    //getSupportActionBar().setTitle("Restaurantes CUU");
+    //CollapsingToolbarLayout
+    CollapsingToolbarLayout ctlLayout = (CollapsingToolbarLayout)findViewById(R.id.ctlLayout);
+    ctlLayout.setTitle("Restaurantes CUU");
     addData();
     initializeAdapter();
 

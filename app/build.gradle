@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.example.a14550390.eva2_practica1"
-        minSdkVersion 21
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
