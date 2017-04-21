@@ -3,6 +3,7 @@ package com.example.a14550390.eva2_practica1;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable.Creator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
   private RestaurantAdapter rAdapter;
-  private ArrayList<DatosRestaurant> datos;
+  private ArrayList<DatosRestaurant> datos = new ArrayList<DatosRestaurant>();
 
 /*  DatosRestaurant[] arrDatosRestaurant = {
       new DatosRestaurant(R.drawable.barrafina, "Barra Fina", "Restaurante Gourmet",
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     listRestaurant.setOnItemClickListener(this);*/
   }
 
-  private void addData(){
+  private void addData() {
     DatosRestaurant barraFina = new DatosRestaurant();
 
     barraFina.setNombre("Barra fina");
@@ -63,26 +64,29 @@ public class MainActivity extends AppCompatActivity {
     barraFina.setTelefono("6141825532");
     barraFina.setIdImagen(R.drawable.barrafina);
     datos.add(barraFina);
-/*    datos.add(new DatosRestaurant(R.drawable.bourkestreetbakery, "Bourke Bakery", "Cafetería",
+    datos.add(new DatosRestaurant(R.drawable.bourkestreetbakery, "Bourke Bakery", "Cafetería",
         "Calle Cuauhtemoc #4323", "6142643987"));
     datos.add(new DatosRestaurant(R.drawable.cafeloisl, "Café Loisl", "Cafetería",
         "Av. de las americas #232", "6146428645"));
-    datos.add(new DatosRestaurant(R.drawable.cafelore, "Café Lore", "Cafetería", "Av. mirador #5362",
-        "614287394"));
-    datos.add(new DatosRestaurant(R.drawable.confessional, "Confessional", "Pizzería", "Av. mirador #5362",
+    datos
+        .add(new DatosRestaurant(R.drawable.cafelore, "Café Lore", "Cafetería", "Av. mirador #5362",
+            "614287394"));
+    datos.add(new DatosRestaurant(R.drawable.confessional, "Confessional", "Pizzería",
+        "Av. mirador #5362",
         "6142357342"));
     datos.add(new DatosRestaurant(R.drawable.donostia, "Donostia", "Restaurante Gourmet",
         "Av. mirador #5362", "6142312768"));
     datos.add(new DatosRestaurant(R.drawable.fiveleaves, "Five leaves", "Restaurante Gourmet",
         "Av. mirador #5362", "6142427455"));
     datos.add(new DatosRestaurant(R.drawable.forkeerestaurant, "Forkee Restaurant", "Desayunos",
-        "Av. mirador #5362", "6142428958"));*/
+        "Av. mirador #5362", "6142428958"));
   }
+
   private void initializeAdapter() {
     rAdapter = new RestaurantAdapter(datos);
     RecyclerView recView = (RecyclerView) findViewById(R.id.RecView);
     recView.setHasFixedSize(true);
-    recView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+    recView.setLayoutManager(new LinearLayoutManager(this));
     recView.setAdapter(rAdapter);
   }
 

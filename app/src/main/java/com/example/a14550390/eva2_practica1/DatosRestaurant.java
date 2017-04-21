@@ -9,10 +9,13 @@ import android.os.Parcelable;
 
 public class DatosRestaurant implements Parcelable {
 
-  private String nombre, descripcion, direccion, telefono;
+  private String nombre;
+  private String descripcion;
+  private String direccion;
+  private String telefono;
   private int idImagen;
 
-  public static final Creator<DatosRestaurant> CREATOR = new Creator<DatosRestaurant>() {
+  public static final Parcelable.Creator<DatosRestaurant> CREATOR = new Parcelable.Creator<DatosRestaurant>() {
     @Override
     public DatosRestaurant createFromParcel(Parcel in) {
       return new DatosRestaurant(in);
@@ -41,15 +44,27 @@ public class DatosRestaurant implements Parcelable {
     telefono = "";
   }
 
-//  modificado
   protected DatosRestaurant(Parcel in) {
-    idImagen = in.readInt();
     nombre = in.readString();
     descripcion = in.readString();
     direccion = in.readString();
     telefono = in.readString();
+    idImagen = in.readInt();
   }
 
+  @Override
+  public int describeContents() {
+    return 0;
+  }
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+    dest.writeString(nombre);
+    dest.writeString(descripcion);
+    dest.writeString(direccion);
+    dest.writeString(telefono);
+    dest.writeInt(idImagen);
+  }
 
   public String getNombre() {
     return nombre;
@@ -69,20 +84,6 @@ public class DatosRestaurant implements Parcelable {
 
   public int getIdImagen() {
     return idImagen;
-  }
-
-  @Override
-  public int describeContents() {
-    return 0;
-  }
-
-  @Override
-  public void writeToParcel(Parcel dest, int flags) {
-    dest.writeString(nombre);
-    dest.writeInt(idImagen);
-    dest.writeString(descripcion);
-    dest.writeString(telefono);
-    dest.writeString(direccion);
   }
 
   public void setNombre(String nombre) {
